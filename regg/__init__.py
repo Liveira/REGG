@@ -6,5 +6,4 @@ A simple regex generator
 
 Copyright 2021 Liveira 
 license MIT
-
  """
