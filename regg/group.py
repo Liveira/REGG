@@ -22,25 +22,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-from regg.utils import utils
-from .group import Group
-
-class REGG:
-    def __init__(self):
-        self.regex = '^'
-        self.currentGroup = 0
-    def new_group(self):
-        '''
-        Add Group
-        -------------
-        Create a new group in REGEX
-
-        returns a `(Group)` class
-        '''
-        reg = ""
-        self.regex += f'({reg})'
-        return Group(reg)
-
-
-
-
+class Group:
+    def __init__(self,regex: str):
+        self.regex = regex
