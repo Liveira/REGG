@@ -23,13 +23,39 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 from regg.utils import utils
+data = ['*','+','^','.','[',']','(',')','-','|']
 class Group:
     def __init__(self,regex: str):
         self.regex = regex
-    def one_word(self,word:str) -> None:
+    def one_word(self,word:str,multiply: str=None) -> None:
         '''
         One World
         ------------
         Add a one world to group
+        
+        Arguments:
+        `word` -> Word
+        `multiply` -> Filter, example: multiply = regg.utils.one_or_more | '+', for more info, read the docs!
+
+        
+        returns `None`
         '''
-        self.regex += word
+        self.regex += '[' + word + ']' + multiply if multiply != None else ""
+    def many_words(self,words:str,multiply:str=None) -> None:
+        '''Many Worlds
+        ------------
+        Add a many worlds to group
+        
+        Arguments:
+        `words` -> Words
+        `multiply` -> Filter, example: multiply = regg.utils.one_or_more | '+', for more info, read the docs!
+
+        returns `None`'''
+        string = ""
+        for i in words:
+            if i in data:
+                string += '\\'+ i
+            else:
+                string += i
+        self.regex += string + multiply if multiply != None else ""
+    

@@ -39,7 +39,7 @@ class REGG:
         '''
         reg = ""
         self.regex += f'({reg})'
-        return Group(reg)
+        return Group(reg).many_words('yeyeye',multiply=utils.one_or_more)
 
 
 
