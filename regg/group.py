@@ -22,6 +22,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
+from regg.utils import utils
 class Group:
     def __init__(self,regex: str):
         self.regex = regex
+    def one_word(self,word:str) -> None:
+        '''
+        One World
+        ------------
+        Add a one world to group
+        '''
+        self.regex += word
